@@ -8,15 +8,15 @@ In short, nested tables with hacky tricks to make it responsive. And you are bac
 ###Important points
 - Email clients such as Gmail will strip your `<style>` tag in `<head>`
 - No standard tags like `<div>`, `<p>`, `<h1>` and `<h2>`
-- `colspan` or `rowspan` tags cannot be used. Use nested tables instead.
+- `colspan` or `rowspan` attributes cannot be used. Use nested tables instead
 - Margin not supported
 - No shorthand (i.e. `style="font: 8px/14px Arial, sans-serif;"`)
 - Specify every single value for padding (i.e. `padding-top: 10px; padding-right: 10px; padding-bottom: 8px; padding-left: 5px;`)
-- Specify all your widths. Main container with width in pixels and percentages inside the container works (good for responsive design).
+- Specify all your widths. Main container with width in pixels and percentages inside the container works (good for responsive design)
 - Full six characters of a hex code
 - Multiple classes not allowed
-- `style="height: auto"` won't work for images on Outlook. Set the height in pixels. Then use `height: auto!important` for responsive design using a class.
-- Background images can be used on email body by assigning them to both the `<body>` tag and a wrapper table. On table cells level, VML hack approach needs to be applied http://blog.mailermailer.com/email-design/bulletproof-email-background-images-fact-or-fiction.
+- `style="height: auto"` won't work for images on Outlook. Set the height in pixels. Then use `height: auto!important` for responsive design using a class
+- Background images can be used on email body by assigning them to both the `<body>` tag and a wrapper table. On table cells level, VML hack approach needs to be applied http://blog.mailermailer.com/email-design/bulletproof-email-background-images-fact-or-fiction
 - VML hack supports `background-repeat` property
 
 
@@ -27,7 +27,7 @@ In short, nested tables with hacky tricks to make it responsive. And you are bac
 - 600 pixels is a safe maximum width within most desktop and webmail clients
 - Image names should be short and meaningful (i.e. `email.gif`, not `campaign_054_design_0x0_v6_email-link.gif`) otherwise can be treated as spam
 - PNG may no be supported by some old email clients (e.g. Lotus 6 and 7)
-- The look of alt text (when images are not loaded) can be changed by styling the parent `<td>`.
+- The look of alt text (when images are not loaded) can be changed by styling the parent `<td>`
 - HTML validation: http://validator.w3.org/
 
 
@@ -45,7 +45,7 @@ Use XHTML 1.0 Transitional for the HTML doctype:
 ```
 
 
-Add a table with a width of 100% inside the `<body>` tag. This acts as a true body tag for our email, because styling of the body tag isn't fully supported.
+Add a table with a width of 100% inside the `<body>` tag. This acts as a true body tag for our email, because styling of the body tag isn't fully supported
 ```
 <body style="margin: 0; padding: 0;">
   <table border="1" cellpadding="0" cellspacing="0" width="100%">
@@ -102,7 +102,7 @@ Use both CSS and `<font>` tag to style links
 
 ###Important points
 
-- Outlook will automatically stack your tables if there isn't at least 25px to spare on any given row (using `align="left"` technique).
+- Outlook will automatically stack your tables if there isn't at least 25px to spare on any given row (using `align="left"` technique)
 - Yahoo! Mail ignores media query conditional code and the fix is to use attribute selector https://www.emailonacid.com/blog/article/email-development/stop_yahoo_mail_from_rendering_your_media_queries
 
 
