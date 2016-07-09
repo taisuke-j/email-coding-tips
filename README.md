@@ -34,7 +34,7 @@ In short, nested tables with hacky tricks to make it responsive. And you are bac
 ###Code Examples
 
 Use XHTML 1.0 Transitional for the HTML doctype:
-```
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -46,7 +46,7 @@ Use XHTML 1.0 Transitional for the HTML doctype:
 
 
 Add a table with a width of 100% inside the `<body>` tag. This acts as a true body tag for our email, because styling of the body tag isn't fully supported
-```
+```html
 <body style="margin: 0; padding: 0;">
   <table border="1" cellpadding="0" cellspacing="0" width="100%">
     <tr>
@@ -76,13 +76,13 @@ Add a table with a width of 100% inside the `<body>` tag. This acts as a true bo
 
 
 If you want to use margin between elements (not supported), or padding doesn't work:
-```
+```html
 <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
 ```
 
 
 Use `style="display:block;` on images to avoid gaps underneath them:
-```
+```html
 <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
  <img src="images/h1.gif" alt="Creating Email Magic" width="300" height="230" style="display: block;" />
 </td>
@@ -90,7 +90,7 @@ Use `style="display:block;` on images to avoid gaps underneath them:
 
 
 Use both CSS and `<font>` tag to style links
-```
+```html
 <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;">
  &reg; Someone, somewhere 2013<br/>
  <a href="#" style="color: #ffffff;"><font color="#ffffff">Unsubscribe</font></a> to this newsletter instantly
@@ -109,7 +109,7 @@ Use both CSS and `<font>` tag to style links
 ###Code Examples
 
 Alternative solution for the 25px issue with aligned tables instead of changing the width of tables:
-```
+```html
 <!--[if mso]>
    </td><td>
 <![endif]-->
@@ -117,7 +117,7 @@ Alternative solution for the 25px issue with aligned tables instead of changing 
 
 
 `max-width` is not supported in Outlook and Lotus Notes 8 & 8.5. This conditional code targets IE (which is the rendering engine used by Lotus Notes) and Outlook.
-```
+```html
 <!--[if (gte mso 9)|(IE)]>
 <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
     <tr>
@@ -139,7 +139,7 @@ Alternative solution for the 25px issue with aligned tables instead of changing 
 
 
 For Apple Mail, which dose not support `max-width`:
-```
+```html
 <!--[if (gte mso 9)|(IE)]>
 <table width="425" align="left" cellpadding="0" cellspacing="0" border="0">
     <tr>
@@ -157,13 +157,13 @@ For Apple Mail, which dose not support `max-width`:
 </table>
 <![endif]-->
 ```
-```
+```css
 .col425 {width: 425px!important;}
 ```
 
 
 Button with fluid width:
-```
+```html
 <table class="buttonwrapper" bgcolor="#e05443" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="button" height="45">
@@ -175,7 +175,7 @@ Button with fluid width:
 
 
 Making the whole button clickable on mobile:
-```
+```css
 @media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
   body[yahoo] .buttonwrapper {background-color: transparent!important;}
   body[yahoo] .button a {background-color: #e05443; padding: 15px 15px 13px!important; display: block!important;}
