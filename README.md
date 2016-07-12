@@ -113,10 +113,6 @@ Use both CSS and `<font>` tag to style links
 - Yahoo! Mail ignores media query conditional code and the fix is to use attribute selector https://www.emailonacid.com/blog/article/email-development/stop_yahoo_mail_from_rendering_your_media_queries
 
 
-###Other points
-- If you want to be a master of responsive email, here is the link: http://webdesign.tutsplus.com/tutorials/creating-a-future-proof-responsive-email-without-media-queries--cms-23919
-
-
 ###Code Examples
 
 Alternative solution for the 25px issue with aligned tables instead of changing the width of tables:
