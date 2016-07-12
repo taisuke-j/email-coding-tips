@@ -2,6 +2,8 @@
 
 In short, nested tables with hacky tricks to make it responsive. And you are back in 1999.
 
+This guide is not comprehensive but good enough to code for major email clients.
+
 
 ##General
 
@@ -14,15 +16,18 @@ In short, nested tables with hacky tricks to make it responsive. And you are bac
 - Specify every single value for padding (i.e. `padding-top: 10px; padding-right: 10px; padding-bottom: 8px; padding-left: 5px;`)
 - Specify all your widths. Main container with width in pixels and percentages inside the container works (good for responsive design)
 - Full six characters of a hex code
+- Set `border: 0;` to `<img>` to remove unwanted borders on linked images
 - Multiple classes not allowed
 - `style="height: auto"` won't work for images on Outlook. Set the height in pixels. Then use `height: auto!important` for responsive design using a class
 - Background images can be used on email body by assigning them to both the `<body>` tag and a wrapper table. On table cells level, VML hack approach needs to be applied http://blog.mailermailer.com/email-design/bulletproof-email-background-images-fact-or-fiction
 - VML hack supports `background-repeat` property
+- Earlier versions of WebKit-powered mail clients (basically only Apple Mail 6 and below, and Outlook 2011 in some cases) only support max-width on block-level elements
 
 
 ###Other points
+- `<meta http-equiv="X-UA-Compatible" content="IE=edge" />` is for Windows Phones to render correctly
 - use `<b>` tag to create bold text
-- set `line-height` for each cell
+- set paddings, `line-height` for each cell
 - If an attribute exists in HTML, use that instead of CSS (i.e. width)
 - 600 pixels is a safe maximum width within most desktop and webmail clients
 - Image names should be short and meaningful (i.e. `email.gif`, not `campaign_054_design_0x0_v6_email-link.gif`) otherwise can be treated as spam
@@ -39,6 +44,9 @@ Use XHTML 1.0 Transitional for the HTML doctype:
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--[if !mso]><!-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--<![endif]-->
 <title>Demystifying Email Design</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -51,7 +59,7 @@ Add a table with a width of 100% inside the `<body>` tag. This acts as a true bo
   <table border="1" cellpadding="0" cellspacing="0" width="100%">
     <tr>
       <td>
-        <table align="center" border="1" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+        <table align="center" border="1" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
          <tr>
           <td bgcolor="#70bbd9">
            Row 1
@@ -101,9 +109,12 @@ Use both CSS and `<font>` tag to style links
 ##Responsive email
 
 ###Important points
-
 - Outlook will automatically stack your tables if there isn't at least 25px to spare on any given row (using `align="left"` technique)
 - Yahoo! Mail ignores media query conditional code and the fix is to use attribute selector https://www.emailonacid.com/blog/article/email-development/stop_yahoo_mail_from_rendering_your_media_queries
+
+
+###Other points
+- If you want to be a master of responsive email, here is the link: http://webdesign.tutsplus.com/tutorials/creating-a-future-proof-responsive-email-without-media-queries--cms-23919
 
 
 ###Code Examples
